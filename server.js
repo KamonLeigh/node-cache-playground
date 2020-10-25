@@ -1,10 +1,14 @@
 const http = require('http');
 const { createHash }  = require('crypto');
 
+
+// store the html as a hash
 function md5(str) {
     return createHash("md5").update(str).digest("hex")
 }
 
+
+// NB max-age=0 is header setting telling the browser how long to use the cache before making a call to the B/E
 const server = http.createServer((req, res) => {
  
     switch(req.url) {
